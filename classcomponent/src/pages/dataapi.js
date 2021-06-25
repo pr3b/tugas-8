@@ -1,84 +1,59 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import Card from '../components/Card/Card'
+import { CardUser, CardPhoto, CardName, CardAge, CardCountry, CardCover } from '../components/Card/CardElements'
 
-
-export default class dataapi extends Component {
+class dataapi extends Component {
 
     constructor() {
         super()
-    
         this.state = {
-             title: 'Data api 3rd party',
-             nameList: []
+             persons: []
+            //  person2: [],
+            //  contacts: []
         }
     }
 
     componentDidMount(){
-        // console.log('did mount');
-        // fetch('https://randomuser.me/api/')
-        // .then((resp) => resp.json())
-        // .then((data) => {
+        // fetch('https://jsonplaceholder.typicode.com/users')
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data[0].name);
         //     this.setState({
-        //         users: data
+        //         persons: data
         //     })
         // })
-        // .catch(err => {
-        //     console.log(err);
-        // })
 
-        axios.get('https://randomuser.me/api/')
-        .then(res => {
-            const firstName = res.data.results[0].name.first;
-            const lastName = res.data.results[0].name.last;
-            const name = firstName + ' ' + lastName;
-            const age = res.data.results[0].dob.age;
-            const country = res.data.results[0].location.country;
-            const profilePhoto = res.data.results[0].picture.medium;
-            const users = [name, age, country, profilePhoto];
-            this.setState({users});
-            // console.log(names.results[0].name.first);
-            // console.log(name.results[0].dob.age);
+        fetch("https://randomuser.me/api/")
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data.results[0]);
+            this.setState({
+                persons: data.results[0].name.first,
+                age: data.results[0].dob.age,
+                country: data.results[0].location.country,
+                photo: data.results[0].picture.large
+            })
         })
-        .catch((err) => {
+        .catch(err => {
             console.log(err);
         })
     }
-
-    componentDidUpdate(){
-        console.log('did update');
-        
-    }
-
-    // handleOnChange(event){
-    //     this.setState({
-    //         todoInput: event.target.value
-    //     })
-    // }
     
-    // handleSubmit(){
-    //     // const newTodo = [...this.state.todos, this.state.todoInput] //spread operator
-    //     this.setState({
-    //         // todos: newTodo,
-    //         // todos: this.state.todos.concat(this.state.todoInput),
-    //         // todoInput: ''
-    //     })
-    // }
-
-    // handleDetail(todo){
-    //     console.log(todo);
-    // }
-
     render() {
+        const { persons, age, country, photo } = this.state;
+        // const { person2 } = this.state;
+
         return (
-            <div>
-                <pre>
-                <h1>{this.state.title}</h1> 
-                {/* <Card> */}
-                {JSON.stringify(this.state.users, null, 2)}
-                {/* </Card> */}
-                </pre>
-            </div>
+            <>
+                <CardUser>
+                    <CardCover />
+                    <CardPhoto img src={photo} />
+                    <CardName>{persons}</CardName>
+                    <CardAge>{age}</CardAge>
+                    <CardCountry>{country}</CardCountry>
+                </CardUser>
+            </>
         )
     }
 }
+
+export default dataapi

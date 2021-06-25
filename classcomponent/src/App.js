@@ -7,8 +7,6 @@ import About from './pages/about'
 import Data from './pages/data'
 import SignUp from './pages/signup'
 import SignIn from './pages/signin'
-import Card from './components/Card/Card';
-
 
 function App() {
   return (
@@ -24,7 +22,6 @@ function App() {
         <Route path="/signin" exact component={SignIn} />
       </Switch>
     </Router>
-    <Card />
     </>
   );
 }
