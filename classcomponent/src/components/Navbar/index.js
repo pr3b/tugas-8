@@ -7,7 +7,7 @@ const Navbar = () => {
         <>
             <Nav>
                 <NavLink to="/">
-                    <h1>Tugas8</h1>
+                    <h1>React</h1>
                     {/* <img src={Logo}
                     alt='logo' /> */}
                 </NavLink>
