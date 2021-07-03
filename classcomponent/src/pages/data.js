@@ -5,9 +5,7 @@ const Data = () => {
     return (
         <div style={{
                 display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '90vh'
+                flexWrap: 'wrap'
         }}
         >
             <Dataapi />
