@@ -1,5 +1,4 @@
 import useFetch from '../services/hooks/useFetch'
-// import { CardUser, CardContainer, CardPhoto, CardName, CardStreet, CardCity, CardCover } from '../Card/CardElements'
 import Card from '../Card/Card';
 
 const Users = () => {
