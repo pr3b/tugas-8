@@ -10,8 +10,9 @@ const Users = () => {
     
     return (
         <>
-            <h1>User page raw</h1>
-            <Card />
+            {data.map((users, index) => {
+                return <Card key={index} users={users} />
+            })}
         </>
     )
 }

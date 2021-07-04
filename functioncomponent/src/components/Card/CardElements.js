@@ -2,10 +2,8 @@ import styled from "styled-components";
 import image from '../images/pattern.jpg';
 
 export const CardContainer = styled.div`
-    display: flex;
-    justify-content: center;
+    display: inline-block;
     flex-wrap: wrap;
-    flex-direction: column;
 `
 
 export const CardUser = styled.div`

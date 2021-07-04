@@ -1,4 +1,3 @@
-import Users from "./components/pages/Users";
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
@@ -11,8 +10,7 @@ import SignIn from './components/pages/signin'
 function App() {
   return (
     <>
-    <Users />
-    {/* <Router>
+    <Router>
       <Navbar />
       <Switch>
         <Route path="/" exact component={Logo} />
@@ -21,7 +19,7 @@ function App() {
         <Route path="/signup" exact component={SignUp} />
         <Route path="/signin" exact component={SignIn} />
       </Switch>
-    </Router> */}
+    </Router>
     </>
   );
 }

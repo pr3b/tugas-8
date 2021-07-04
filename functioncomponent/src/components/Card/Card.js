@@ -1,24 +1,19 @@
 import React from 'react'
 import { CardUser, CardContainer, CardPhoto, CardName, CardStreet, CardCity, CardCover } from './CardElements'
-import useFetch from '../services/hooks/useFetch';
+import image from '../images/user.jpg'
 
-const Card = () => {
-
-    const { data } = useFetch(
-        "https://jsonplaceholder.typicode.com/users"
-        );
-
+const Card = (data) => {
     return (
         <>
-            <h1>Card page</h1>
-            {data.map((users) => {
-                return <p key={users}>{users.name}</p>
-            })}
-
-            {/* uncomment = invalid hook call */}
-            {/* <CardUser>
-                <CardName>testname</CardName>
-            </CardUser> */}
+        <CardContainer>
+            <CardUser>
+                <CardCover />
+                <CardPhoto src={image} />
+                <CardName>{data.users.name}</CardName>
+                <CardStreet>{data.users.address.street}</CardStreet>
+                <CardCity>{data.users.address.city}</CardCity>
+            </CardUser>
+        </CardContainer>
         </>
     )
 }

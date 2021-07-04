@@ -9,7 +9,7 @@ const Logo = () => {
                 height: '90vh'
         }}
         >
-            <h1>Challenge 1 - React Class Components</h1>
+            <h1>Challenge 1 - React Function Components</h1>
         </div>
     )
 }
